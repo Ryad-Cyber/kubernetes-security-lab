@@ -1,0 +1,69 @@
+name: Kubernetes DevSecOps Security Pipeline
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  security-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+
+      - name: Helm chart validation
+        run: helm lint helm/backend
+
+      - name: Render Kubernetes manifests
+        run: |
+          mkdir -p rendered
+          helm template backend helm/backend --namespace backend > rendered/backend.yaml
+
+      - name: Build backend Docker image
+        run: docker build -t security-lab-backend:1.1.0 app
+
+      - name: Trivy image vulnerability assessment
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: security-lab-backend:1.1.0
+          severity: HIGH,CRITICAL
+          exit-code: '0'
+          format: table
+
+      - name: Trivy Kubernetes security gate
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          scan-type: config
+          scan-ref: kubernetes
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          format: table
+
+      - name: Trivy Helm security gate
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          scan-type: config
+          scan-ref: rendered
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          format: table
+
+      - name: Secret detection with Gitleaks
+        run: |
+          docker run --rm -v "$PWD:/repo" \
+            ghcr.io/gitleaks/gitleaks:v8.24.3 \
+            dir /repo/app --redact
+          docker run --rm -v "$PWD:/repo" \
+            ghcr.io/gitleaks/gitleaks:v8.24.3 \
+            dir /repo/kubernetes --redact
+          docker run --rm -v "$PWD:/repo" \
+            ghcr.io/gitleaks/gitleaks:v8.24.3 \
+            dir /repo/helm --redact

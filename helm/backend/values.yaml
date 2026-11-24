@@ -1,0 +1,10 @@
+replicaCount: 2
+
+image:
+  repository: security-lab-backend
+  tag: "1.1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8000
+

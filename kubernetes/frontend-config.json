@@ -1,0 +1,11 @@
+﻿{
+    "apiVersion":  "v1",
+    "data":  {
+                 "default.conf":  "server {\n    listen 8080;\n\n    location / {\n        default_type text/html;\n        return 200 \u0027\u003chtml\u003e\u003cbody\u003e\u003ch1\u003eKubernetes Security Lab\u003c/h1\u003e\u003ch2\u003eCloud Security \u0026 DevSecOps\u003c/h2\u003e\u003cp\u003eFrontend: Operational\u003c/p\u003e\u003ca href=\"/api/\"\u003eBackend API\u003c/a\u003e\u003cbr\u003e\u003ca href=\"/api/health\"\u003eHealth Check\u003c/a\u003e\u003c/body\u003e\u003c/html\u003e\u0027;\n    }\n\n    location /api/ {\n        proxy_pass http://backend.backend.svc.cluster.local:8000/;\n    }\n}\r\n"
+             },
+    "kind":  "ConfigMap",
+    "metadata":  {
+                     "name":  "frontend-nginx",
+                     "namespace":  "frontend"
+                 }
+}
