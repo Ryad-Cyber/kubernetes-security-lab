@@ -31,7 +31,7 @@ jobs:
         run: docker build -t security-lab-backend:1.1.0 app
 
       - name: Trivy image vulnerability assessment
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: security-lab-backend:1.1.0
           severity: HIGH,CRITICAL
@@ -39,7 +39,7 @@ jobs:
           format: table
 
       - name: Trivy Kubernetes security gate
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: config
           scan-ref: kubernetes
@@ -48,7 +48,7 @@ jobs:
           format: table
 
       - name: Trivy Helm security gate
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: config
           scan-ref: rendered
