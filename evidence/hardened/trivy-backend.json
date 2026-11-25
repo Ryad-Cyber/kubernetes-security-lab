@@ -1,0 +1,21 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.2"
+  },
+  "ReportID": "01a20f84-7622-7ac0-8d61-8dc21a23847a",
+  "CreatedAt": "2026-11-24T21:44:28.9627047Z",
+  "ArtifactName": "evidence/hardened/backend-rendered.yaml",
+  "ArtifactType": "filesystem",
+  "Results": [
+    {
+      "Target": "backend-rendered.yaml",
+      "Class": "config",
+      "Type": "kubernetes",
+      "MisconfSummary": {
+        "Successes": 99,
+        "Failures": 0
+      }
+    }
+  ]
+}

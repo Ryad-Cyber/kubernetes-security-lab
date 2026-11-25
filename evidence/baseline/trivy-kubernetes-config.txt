@@ -1,0 +1,538 @@
+
+Report Summary
+
+┌───────────────┬────────────┬───────────────────┐
+│    Target     │    Type    │ Misconfigurations │
+├───────────────┼────────────┼───────────────────┤
+│ database.yaml │ kubernetes │        12         │
+├───────────────┼────────────┼───────────────────┤
+│ frontend.yaml │ kubernetes │        13         │
+└───────────────┴────────────┴───────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+database.yaml (kubernetes)
+==========================
+Tests: 111 (SUCCESSES: 99, FAILURES: 12)
+Failures: 12 (UNKNOWN: 0, LOW: 6, MEDIUM: 3, HIGH: 3, CRITICAL: 0)
+
+KSV-0001 (MEDIUM): Container 'postgres' of Deployment 'postgres' should set 'securityContext.allowPrivilegeEscalation' to false
+════════════════════════════════════════
+A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node.
+
+See https://avd.aquasec.com/misconfig/ksv-0001
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0003 (LOW): Container 'postgres' of Deployment 'postgres' should add 'ALL' to 'securityContext.capabilities.drop'
+════════════════════════════════════════
+The container should drop all default capabilities and add only those that are needed for its execution.
+
+See https://avd.aquasec.com/misconfig/ksv-0003
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0004 (LOW): Container 'postgres' of 'deployment' 'postgres' in 'database' namespace should set securityContext.capabilities.drop
+════════════════════════════════════════
+Security best practices require containers to run with minimal required capabilities.
+
+See https://avd.aquasec.com/misconfig/ksv-0004
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0012 (MEDIUM): Container 'postgres' of Deployment 'postgres' should set 'securityContext.runAsNonRoot' to true
+════════════════════════════════════════
+Force the running image to run as a non-root user to ensure least privileges.
+
+See https://avd.aquasec.com/misconfig/ksv-0012
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0014 (HIGH): Container 'postgres' of Deployment 'postgres' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0020 (LOW): Container 'postgres' of Deployment 'postgres' should set 'securityContext.runAsUser' > 10000
+════════════════════════════════════════
+Force the container to run with user ID > 10000 to avoid conflicts with the host’s user table.
+
+See https://avd.aquasec.com/misconfig/ksv-0020
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0021 (LOW): Container 'postgres' of Deployment 'postgres' should set 'securityContext.runAsGroup' > 10000
+════════════════════════════════════════
+Force the container to run with group ID > 10000 to avoid conflicts with the host’s user table.
+
+See https://avd.aquasec.com/misconfig/ksv-0021
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0030 (LOW): Either Pod or Container should set 'securityContext.seccompProfile.type' to 'RuntimeDefault'
+════════════════════════════════════════
+According to pod security standard 'Seccomp', the RuntimeDefault seccomp profile must be required, or allow specific additional profiles.
+
+See https://avd.aquasec.com/misconfig/ksv-0030
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0104 (MEDIUM): container "postgres" of deployment "postgres" in "database" namespace should specify a seccomp profile
+════════════════════════════════════════
+A program inside the container can bypass Seccomp protection policies.
+
+See https://avd.aquasec.com/misconfig/ksv-0104
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0106 (LOW): container should drop all
+════════════════════════════════════════
+Containers must drop ALL capabilities, and are only permitted to add back the NET_BIND_SERVICE capability.
+
+See https://avd.aquasec.com/misconfig/ksv-0106
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container postgres in database namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ database.yaml:17-35
+────────────────────────────────────────
+  17 ┌         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 │                 name: postgres-credentials
+  24 │           readinessProbe:
+  25 └             exec:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment postgres in database namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ database.yaml:15-35
+────────────────────────────────────────
+  15 ┌     spec:
+  16 │       containers:
+  17 │         - name: postgres
+  18 │           image: postgres:16-alpine
+  19 │           ports:
+  20 │             - containerPort: 5432
+  21 │           envFrom:
+  22 │             - secretRef:
+  23 └                 name: postgres-credentials
+  ..   
+────────────────────────────────────────
+
+
+
+frontend.yaml (kubernetes)
+==========================
+Tests: 112 (SUCCESSES: 99, FAILURES: 13)
+Failures: 13 (UNKNOWN: 0, LOW: 6, MEDIUM: 4, HIGH: 3, CRITICAL: 0)
+
+KSV-0001 (MEDIUM): Container 'nginx' of Deployment 'frontend' should set 'securityContext.allowPrivilegeEscalation' to false
+════════════════════════════════════════
+A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node.
+
+See https://avd.aquasec.com/misconfig/ksv-0001
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0003 (LOW): Container 'nginx' of Deployment 'frontend' should add 'ALL' to 'securityContext.capabilities.drop'
+════════════════════════════════════════
+The container should drop all default capabilities and add only those that are needed for its execution.
+
+See https://avd.aquasec.com/misconfig/ksv-0003
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0004 (LOW): Container 'nginx' of 'deployment' 'frontend' in 'frontend' namespace should set securityContext.capabilities.drop
+════════════════════════════════════════
+Security best practices require containers to run with minimal required capabilities.
+
+See https://avd.aquasec.com/misconfig/ksv-0004
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0012 (MEDIUM): Container 'nginx' of Deployment 'frontend' should set 'securityContext.runAsNonRoot' to true
+════════════════════════════════════════
+Force the running image to run as a non-root user to ensure least privileges.
+
+See https://avd.aquasec.com/misconfig/ksv-0012
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0014 (HIGH): Container 'nginx' of Deployment 'frontend' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0020 (LOW): Container 'nginx' of Deployment 'frontend' should set 'securityContext.runAsUser' > 10000
+════════════════════════════════════════
+Force the container to run with user ID > 10000 to avoid conflicts with the host’s user table.
+
+See https://avd.aquasec.com/misconfig/ksv-0020
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0021 (LOW): Container 'nginx' of Deployment 'frontend' should set 'securityContext.runAsGroup' > 10000
+════════════════════════════════════════
+Force the container to run with group ID > 10000 to avoid conflicts with the host’s user table.
+
+See https://avd.aquasec.com/misconfig/ksv-0021
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0030 (LOW): Either Pod or Container should set 'securityContext.seccompProfile.type' to 'RuntimeDefault'
+════════════════════════════════════════
+According to pod security standard 'Seccomp', the RuntimeDefault seccomp profile must be required, or allow specific additional profiles.
+
+See https://avd.aquasec.com/misconfig/ksv-0030
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0104 (MEDIUM): container "nginx" of deployment "frontend" in "frontend" namespace should specify a seccomp profile
+════════════════════════════════════════
+A program inside the container can bypass Seccomp protection policies.
+
+See https://avd.aquasec.com/misconfig/ksv-0104
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0106 (LOW): container should drop all
+════════════════════════════════════════
+Containers must drop ALL capabilities, and are only permitted to add back the NET_BIND_SERVICE capability.
+
+See https://avd.aquasec.com/misconfig/ksv-0106
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0117 (MEDIUM): deployment frontend in frontend namespace should not set spec.template.spec.containers.ports.containerPort to less than 1024
+════════════════════════════════════════
+The ports which are lower than 1024 receive and transmit various sensitive and privileged data. Allowing containers to use them can bring serious implications.
+
+See https://avd.aquasec.com/misconfig/ksv-0117
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container frontend in frontend namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ frontend.yaml:17-27
+────────────────────────────────────────
+  17 ┌         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 │               cpu: 25m
+  24 │               memory: 32Mi
+  25 └             limits:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment frontend in frontend namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ frontend.yaml:15-27
+────────────────────────────────────────
+  15 ┌     spec:
+  16 │       containers:
+  17 │         - name: nginx
+  18 │           image: nginx:alpine
+  19 │           ports:
+  20 │             - containerPort: 80
+  21 │           resources:
+  22 │             requests:
+  23 └               cpu: 25m
+  ..   
+────────────────────────────────────────
+
+

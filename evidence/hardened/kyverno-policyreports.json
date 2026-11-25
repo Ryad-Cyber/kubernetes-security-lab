@@ -1,0 +1,2698 @@
+﻿{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:47Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "1cf1bdb3-8924-4d0a-9044-647f4ef6c59c",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "Pod",
+                        "name": "backend-98886ccfd-95rlv",
+                        "uid": "1cf1bdb3-8924-4d0a-9044-647f4ef6c59c"
+                    }
+                ],
+                "resourceVersion": "27815",
+                "uid": "36b2dcb1-6ee0-4a29-b786-40c37d137391"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 974661689,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 982553207,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 962637940,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 944387279,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "backend-98886ccfd-95rlv",
+                "namespace": "backend",
+                "uid": "1cf1bdb3-8924-4d0a-9044-647f4ef6c59c"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "24ef3abf-1a45-4c0f-8740-940eb71efa48",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "backend-6cb6d4f59d",
+                        "uid": "24ef3abf-1a45-4c0f-8740-940eb71efa48"
+                    }
+                ],
+                "resourceVersion": "27852",
+                "uid": "3aeb0354-8abb-4206-84df-5c74c256991b"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 950547245,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 963189434,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 939636290,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 926325828,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "backend-6cb6d4f59d",
+                "namespace": "backend",
+                "uid": "24ef3abf-1a45-4c0f-8740-940eb71efa48"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "35303267-02c7-48ac-90fb-136e595a3ac2",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "backend-6ff75b689b",
+                        "uid": "35303267-02c7-48ac-90fb-136e595a3ac2"
+                    }
+                ],
+                "resourceVersion": "27834",
+                "uid": "8a5a7b2b-7135-46e2-8e0b-2c2b670faac7"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 714525762,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 735920271,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 699600827,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 687830266,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "backend-6ff75b689b",
+                "namespace": "backend",
+                "uid": "35303267-02c7-48ac-90fb-136e595a3ac2"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "37bbbe89-5c1d-434d-9d91-c40b8e4d42f5",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "Deployment",
+                        "name": "backend",
+                        "uid": "37bbbe89-5c1d-434d-9d91-c40b8e4d42f5"
+                    }
+                ],
+                "resourceVersion": "27821",
+                "uid": "c9c81a37-d1d9-457c-9339-baac96fa4769"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 419291288,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 427449166,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 409323232,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 402039619,
+                        "seconds": 1795560489
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "backend",
+                "namespace": "backend",
+                "uid": "37bbbe89-5c1d-434d-9d91-c40b8e4d42f5"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:47Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "46998843-9f61-473e-82fb-4be0e26a44c1",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "Pod",
+                        "name": "backend-98886ccfd-9khv5",
+                        "uid": "46998843-9f61-473e-82fb-4be0e26a44c1"
+                    }
+                ],
+                "resourceVersion": "27808",
+                "uid": "4a3d965d-f308-46bc-8f6f-1b0a4bcb5d41"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 714477385,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 722969219,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 702879888,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 737193179,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "backend-98886ccfd-9khv5",
+                "namespace": "backend",
+                "uid": "46998843-9f61-473e-82fb-4be0e26a44c1"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "50e6232b-80e9-45c1-bc61-f75246edfcaf",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "backend-696764dd6b",
+                        "uid": "50e6232b-80e9-45c1-bc61-f75246edfcaf"
+                    }
+                ],
+                "resourceVersion": "27856",
+                "uid": "c6ad369f-ed04-49d5-9d0b-37d1239c82b5"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 61138926,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 78480708,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 36182603,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 24536437,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "backend-696764dd6b",
+                "namespace": "backend",
+                "uid": "50e6232b-80e9-45c1-bc61-f75246edfcaf"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "72dd383d-5d7c-4727-b587-a431b9b358b6",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "backend-79c4c5dd4d",
+                        "uid": "72dd383d-5d7c-4727-b587-a431b9b358b6"
+                    }
+                ],
+                "resourceVersion": "27836",
+                "uid": "adc57877-98c2-4df2-8f64-10bf137355ce"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 773797899,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 782168929,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 758597983,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 748710864,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "backend-79c4c5dd4d",
+                "namespace": "backend",
+                "uid": "72dd383d-5d7c-4727-b587-a431b9b358b6"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "e23a1c86-0d8a-4ac2-98be-78a38fd7e9ed",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "backend-98886ccfd",
+                        "uid": "e23a1c86-0d8a-4ac2-98be-78a38fd7e9ed"
+                    }
+                ],
+                "resourceVersion": "27858",
+                "uid": "9ea4f6f0-c539-4a4c-bb6b-43e5394f318b"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 112838087,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 127329396,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 88855907,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 70457773,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "backend-98886ccfd",
+                "namespace": "backend",
+                "uid": "e23a1c86-0d8a-4ac2-98be-78a38fd7e9ed"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:49Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "f277e9fa-efba-4221-a3bf-accefc785476",
+                "namespace": "backend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "backend-747f58898d",
+                        "uid": "f277e9fa-efba-4221-a3bf-accefc785476"
+                    }
+                ],
+                "resourceVersion": "27866",
+                "uid": "9ba49f93-d49e-4033-a7ce-af769a52cf25"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 350745592,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 364255921,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 338088635,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 322660401,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "backend-747f58898d",
+                "namespace": "backend",
+                "uid": "f277e9fa-efba-4221-a3bf-accefc785476"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "33f5d79b-429b-4af8-addf-47026313c8cd",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-fd7ccb7b5",
+                        "uid": "33f5d79b-429b-4af8-addf-47026313c8cd"
+                    }
+                ],
+                "resourceVersion": "27868",
+                "uid": "bf7e4f05-2a7e-413b-a51f-39c10fb26c2b"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 398748603,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 363199893,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 388428591,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 376194830,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-fd7ccb7b5",
+                "namespace": "database",
+                "uid": "33f5d79b-429b-4af8-addf-47026313c8cd"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "5a4536b6-8105-406c-acf8-626521113398",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-bd7bd76f6",
+                        "uid": "5a4536b6-8105-406c-acf8-626521113398"
+                    }
+                ],
+                "resourceVersion": "27832",
+                "uid": "6b8f0339-8b38-480f-95b8-9b620e2c192b"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 632620885,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 650875201,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 617836824,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 599434905,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-bd7bd76f6",
+                "namespace": "database",
+                "uid": "5a4536b6-8105-406c-acf8-626521113398"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "7df88db2-97c7-4241-97d1-09194622222d",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "Deployment",
+                        "name": "postgres",
+                        "uid": "7df88db2-97c7-4241-97d1-09194622222d"
+                    }
+                ],
+                "resourceVersion": "27824",
+                "uid": "4b382263-70a4-4154-acd6-342df2faff8c"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 405712434,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 412524619,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 432324329,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 425031719,
+                        "seconds": 1795560489
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "postgres",
+                "namespace": "database",
+                "uid": "7df88db2-97c7-4241-97d1-09194622222d"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "94ac5d19-b2d9-43ad-9a45-f61ddd520d8d",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-67bccd6769",
+                        "uid": "94ac5d19-b2d9-43ad-9a45-f61ddd520d8d"
+                    }
+                ],
+                "resourceVersion": "27875",
+                "uid": "87bb04b7-a6dc-43d0-843f-a4541c990e90"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 570363445,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 580047336,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 550046695,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 537305558,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-67bccd6769",
+                "namespace": "database",
+                "uid": "94ac5d19-b2d9-43ad-9a45-f61ddd520d8d"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "b1640fc4-5cfa-4b59-9170-912a97d3d947",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-59dcd46b78",
+                        "uid": "b1640fc4-5cfa-4b59-9170-912a97d3d947"
+                    }
+                ],
+                "resourceVersion": "27854",
+                "uid": "4d1dfdf8-a943-45e1-8748-6026d9ded2e6"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 979845630,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 992991348,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 968454188,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 959378081,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-59dcd46b78",
+                "namespace": "database",
+                "uid": "b1640fc4-5cfa-4b59-9170-912a97d3d947"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "bb9ad08a-96ff-4f9a-aea7-ea6721bdfafa",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-7f7dfb6f56",
+                        "uid": "bb9ad08a-96ff-4f9a-aea7-ea6721bdfafa"
+                    }
+                ],
+                "resourceVersion": "27838",
+                "uid": "4f68ae22-0fc3-47a8-9530-eb20805dc3b8"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 800121714,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 814604027,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 780643796,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 772095739,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-7f7dfb6f56",
+                "namespace": "database",
+                "uid": "bb9ad08a-96ff-4f9a-aea7-ea6721bdfafa"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "de78c0c9-35b8-4cbd-9386-bcce1f64b1cc",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-84b5cdd96b",
+                        "uid": "de78c0c9-35b8-4cbd-9386-bcce1f64b1cc"
+                    }
+                ],
+                "resourceVersion": "27860",
+                "uid": "ab364db4-e7fc-4f87-8f6d-3f1fa1e76f1a"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 162899084,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 181965740,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 136910846,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 123060983,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-84b5cdd96b",
+                "namespace": "database",
+                "uid": "de78c0c9-35b8-4cbd-9386-bcce1f64b1cc"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:47Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "e48980e5-c92b-4330-93bd-4d9890d2e37a",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "Pod",
+                        "name": "postgres-bd7bd76f6-m29zn",
+                        "uid": "e48980e5-c92b-4330-93bd-4d9890d2e37a"
+                    }
+                ],
+                "resourceVersion": "27818",
+                "uid": "ff135299-c3a4-4caf-adc1-e1bc950c0980"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 86770516,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 95499694,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 74004428,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 61822376,
+                        "seconds": 1795560489
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "postgres-bd7bd76f6-m29zn",
+                "namespace": "database",
+                "uid": "e48980e5-c92b-4330-93bd-4d9890d2e37a"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "e554925c-3189-46a6-924b-bb291d01bf18",
+                "namespace": "database",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "postgres-654468fffd",
+                        "uid": "e554925c-3189-46a6-924b-bb291d01bf18"
+                    }
+                ],
+                "resourceVersion": "27830",
+                "uid": "4248cff7-ed4a-4c82-80dc-d780441cc4be"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 576604182,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 587897740,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 555622783,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 544648512,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "postgres-654468fffd",
+                "namespace": "database",
+                "uid": "e554925c-3189-46a6-924b-bb291d01bf18"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "42a70ab6-e313-49b5-84cd-4b452ea22631",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-f56f49b8",
+                        "uid": "42a70ab6-e313-49b5-84cd-4b452ea22631"
+                    }
+                ],
+                "resourceVersion": "27864",
+                "uid": "e3d33021-4a1c-418f-b2fb-f99460a42f61"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 244277845,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 258019946,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 230443608,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 215838680,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-f56f49b8",
+                "namespace": "frontend",
+                "uid": "42a70ab6-e313-49b5-84cd-4b452ea22631"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "666af7b8-30d0-47a2-87df-9216653f9bfd",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-6cc4dc5ddf",
+                        "uid": "666af7b8-30d0-47a2-87df-9216653f9bfd"
+                    }
+                ],
+                "resourceVersion": "27842",
+                "uid": "9b6f4b04-0519-4c00-991e-0ceb42dfaa34"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 870093879,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 882889988,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 847111626,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 900234343,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-6cc4dc5ddf",
+                "namespace": "frontend",
+                "uid": "666af7b8-30d0-47a2-87df-9216653f9bfd"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "6ea2eb04-1120-4def-92e1-b0f337eaeddb",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-6fdd66469b",
+                        "uid": "6ea2eb04-1120-4def-92e1-b0f337eaeddb"
+                    }
+                ],
+                "resourceVersion": "27844",
+                "uid": "36c9a878-1ca4-4829-a96f-9d8ee820294e"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 918284132,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 926298010,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 906017096,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 885654627,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-6fdd66469b",
+                "namespace": "frontend",
+                "uid": "6ea2eb04-1120-4def-92e1-b0f337eaeddb"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "879114f5-f373-46dc-997b-d58ed036ff5d",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-6c58c6657b",
+                        "uid": "879114f5-f373-46dc-997b-d58ed036ff5d"
+                    }
+                ],
+                "resourceVersion": "27840",
+                "uid": "29528e40-ad33-44b5-a7c7-cdc602afeaa2"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 841955403,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 850763742,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 827924312,
+                        "seconds": 1795560487
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 816956874,
+                        "seconds": 1795560487
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-6c58c6657b",
+                "namespace": "frontend",
+                "uid": "879114f5-f373-46dc-997b-d58ed036ff5d"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:47Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "d763c29e-a594-4ebf-a456-96fb9f1701cb",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "Pod",
+                        "name": "frontend-6c58c6657b-h7flt",
+                        "uid": "d763c29e-a594-4ebf-a456-96fb9f1701cb"
+                    }
+                ],
+                "resourceVersion": "27809",
+                "uid": "3f596752-bd61-47a6-861c-f1c6a18ce805"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 797041713,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 753065375,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 780019849,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 767846563,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "frontend-6c58c6657b-h7flt",
+                "namespace": "frontend",
+                "uid": "d763c29e-a594-4ebf-a456-96fb9f1701cb"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "d95cea16-62b6-4638-8b79-ada071ca92f0",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "Deployment",
+                        "name": "frontend",
+                        "uid": "d95cea16-62b6-4638-8b79-ada071ca92f0"
+                    }
+                ],
+                "resourceVersion": "27827",
+                "uid": "625d1600-73cb-40fb-8471-97959463aab2"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 640808141,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 660880113,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 624626696,
+                        "seconds": 1795560489
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 687184084,
+                        "seconds": 1795560489
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "frontend",
+                "namespace": "frontend",
+                "uid": "d95cea16-62b6-4638-8b79-ada071ca92f0"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 0,
+                "pass": 4,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "e456e60c-3caa-4c02-865c-49981ea7fe5b",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-7fd5dfbf8f",
+                        "uid": "e456e60c-3caa-4c02-865c-49981ea7fe5b"
+                    }
+                ],
+                "resourceVersion": "27873",
+                "uid": "e944342f-5a1e-4c40-ac52-440ecbca3ea4"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 461143634,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 427493189,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 450546347,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 437027092,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-7fd5dfbf8f",
+                "namespace": "frontend",
+                "uid": "e456e60c-3caa-4c02-865c-49981ea7fe5b"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "f3cf52ed-5c96-472d-9f76-ab1b6f710a8a",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-b6f6b786b",
+                        "uid": "f3cf52ed-5c96-472d-9f76-ab1b6f710a8a"
+                    }
+                ],
+                "resourceVersion": "27862",
+                "uid": "3d218f6b-2178-4cf6-9b82-46f85c69564d"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 211084770,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 218617053,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 196962420,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 173912172,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-b6f6b786b",
+                "namespace": "frontend",
+                "uid": "f3cf52ed-5c96-472d-9f76-ab1b6f710a8a"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        },
+        {
+            "apiVersion": "wgpolicyk8s.io/v1alpha2",
+            "kind": "PolicyReport",
+            "metadata": {
+                "creationTimestamp": "2026-11-24T22:47:48Z",
+                "generation": 2,
+                "labels": {
+                    "app.kubernetes.io/managed-by": "kyverno"
+                },
+                "name": "f59188b3-3490-444f-8ff3-3a327838c11c",
+                "namespace": "frontend",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "kind": "ReplicaSet",
+                        "name": "frontend-5f4fb4b84",
+                        "uid": "f59188b3-3490-444f-8ff3-3a327838c11c"
+                    }
+                ],
+                "resourceVersion": "27871",
+                "uid": "b7952567-10de-40d2-b4d4-5d1b6f25528d"
+            },
+            "results": [
+                {
+                    "message": "success",
+                    "policy": "disallow-hostpath",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 412546531,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "disallow-latest-tag",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 424913487,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "Root filesystem must be read-only.",
+                    "policy": "require-readonly-rootfs",
+                    "properties": {
+                        "cel.validationIndex": "0",
+                        "process": "background scan"
+                    },
+                    "result": "fail",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 402173567,
+                        "seconds": 1795560488
+                    }
+                },
+                {
+                    "message": "success",
+                    "policy": "require-resource-limits",
+                    "properties": {
+                        "process": "background scan"
+                    },
+                    "result": "pass",
+                    "rule": "validation",
+                    "scored": true,
+                    "source": "KyvernoValidatingPolicy",
+                    "timestamp": {
+                        "nanos": 393776560,
+                        "seconds": 1795560488
+                    }
+                }
+            ],
+            "scope": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "frontend-5f4fb4b84",
+                "namespace": "frontend",
+                "uid": "f59188b3-3490-444f-8ff3-3a327838c11c"
+            },
+            "summary": {
+                "error": 0,
+                "fail": 1,
+                "pass": 3,
+                "skip": 0,
+                "warn": 0
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

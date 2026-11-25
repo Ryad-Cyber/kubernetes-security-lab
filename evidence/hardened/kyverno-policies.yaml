@@ -1,0 +1,608 @@
+﻿apiVersion: v1
+items:
+- apiVersion: policies.kyverno.io/v1
+  kind: ValidatingPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"policies.kyverno.io/v1","kind":"ValidatingPolicy","metadata":{"annotations":{},"name":"disallow-hostpath"},"spec":{"matchConstraints":{"namespaceSelector":{"matchExpressions":[{"key":"kubernetes.io/metadata.name","operator":"In","values":["frontend","backend","database","security-testing"]}]},"resourceRules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["pods"]}]},"validationActions":["Deny"],"validations":[{"expression":"!has(object.spec.volumes) || object.spec.volumes.all(v, !has(v.hostPath))","message":"HostPath volumes are forbidden."}]}}
+    creationTimestamp: "2026-11-24T22:47:37Z"
+    generation: 1
+    name: disallow-hostpath
+    resourceVersion: "27471"
+    uid: c39da305-ef65-4518-8740-86201792fbbd
+  spec:
+    matchConstraints:
+      namespaceSelector:
+        matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values:
+          - frontend
+          - backend
+          - database
+          - security-testing
+      resourceRules:
+      - apiGroups:
+        - ""
+        apiVersions:
+        - v1
+        operations:
+        - CREATE
+        - UPDATE
+        resources:
+        - pods
+    validationActions:
+    - Deny
+    validations:
+    - expression: '!has(object.spec.volumes) || object.spec.volumes.all(v, !has(v.hostPath))'
+      message: HostPath volumes are forbidden.
+  status:
+    autogen:
+      configs:
+        cronjobs:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - cronjobs
+            validationActions:
+            - Deny
+            validations:
+            - expression: '!has(object.spec.jobTemplate.spec.template.spec.volumes)
+                || object.spec.jobTemplate.spec.template.spec.volumes.all(v, !has(v.hostPath))'
+              message: HostPath volumes are forbidden.
+          targets:
+          - group: batch
+            kind: CronJob
+            resource: cronjobs
+            version: v1
+        defaults:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - apps
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - daemonsets
+                - deployments
+                - replicasets
+                - statefulsets
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - jobs
+            validationActions:
+            - Deny
+            validations:
+            - expression: '!has(object.spec.template.spec.volumes) || object.spec.template.spec.volumes.all(v,
+                !has(v.hostPath))'
+              message: HostPath volumes are forbidden.
+          targets:
+          - group: apps
+            kind: DaemonSet
+            resource: daemonsets
+            version: v1
+          - group: apps
+            kind: Deployment
+            resource: deployments
+            version: v1
+          - group: apps
+            kind: ReplicaSet
+            resource: replicasets
+            version: v1
+          - group: apps
+            kind: StatefulSet
+            resource: statefulsets
+            version: v1
+          - group: batch
+            kind: Job
+            resource: jobs
+            version: v1
+    conditionStatus:
+      conditions:
+      - lastTransitionTime: "2026-11-24T22:47:37Z"
+        message: Webhook configured.
+        reason: Succeeded
+        status: "True"
+        type: WebhookConfigured
+      - lastTransitionTime: "2026-11-24T22:47:37Z"
+        message: Policy is ready for reporting.
+        reason: Succeeded
+        status: "True"
+        type: RBACPermissionsGranted
+      message: 'skip generating ValidatingAdmissionPolicy: not enabled.'
+      ready: true
+    generated: false
+- apiVersion: policies.kyverno.io/v1
+  kind: ValidatingPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"policies.kyverno.io/v1","kind":"ValidatingPolicy","metadata":{"annotations":{},"name":"disallow-latest-tag"},"spec":{"matchConstraints":{"namespaceSelector":{"matchExpressions":[{"key":"kubernetes.io/metadata.name","operator":"In","values":["frontend","backend","database","security-testing"]}]},"resourceRules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["pods"]}]},"validationActions":["Deny"],"validations":[{"expression":"object.spec.containers.all(c, c.image.contains('@sha256:') || (c.image.matches('(^|.*/)[^/:]+:[^/:]+$') \u0026\u0026 !c.image.endsWith(':latest')))","message":"Images must use an explicit version tag or digest."}]}}
+    creationTimestamp: "2026-11-24T22:48:05Z"
+    generation: 1
+    name: disallow-latest-tag
+    resourceVersion: "27701"
+    uid: 241da7db-e6dc-4d42-8272-9575492b2aae
+  spec:
+    matchConstraints:
+      namespaceSelector:
+        matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values:
+          - frontend
+          - backend
+          - database
+          - security-testing
+      resourceRules:
+      - apiGroups:
+        - ""
+        apiVersions:
+        - v1
+        operations:
+        - CREATE
+        - UPDATE
+        resources:
+        - pods
+    validationActions:
+    - Deny
+    validations:
+    - expression: object.spec.containers.all(c, c.image.contains('@sha256:') || (c.image.matches('(^|.*/)[^/:]+:[^/:]+$')
+        && !c.image.endsWith(':latest')))
+      message: Images must use an explicit version tag or digest.
+  status:
+    autogen:
+      configs:
+        cronjobs:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - cronjobs
+            validationActions:
+            - Deny
+            validations:
+            - expression: object.spec.jobTemplate.spec.template.spec.containers.all(c,
+                c.image.contains('@sha256:') || (c.image.matches('(^|.*/)[^/:]+:[^/:]+$')
+                && !c.image.endsWith(':latest')))
+              message: Images must use an explicit version tag or digest.
+          targets:
+          - group: batch
+            kind: CronJob
+            resource: cronjobs
+            version: v1
+        defaults:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - apps
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - daemonsets
+                - deployments
+                - replicasets
+                - statefulsets
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - jobs
+            validationActions:
+            - Deny
+            validations:
+            - expression: object.spec.template.spec.containers.all(c, c.image.contains('@sha256:')
+                || (c.image.matches('(^|.*/)[^/:]+:[^/:]+$') && !c.image.endsWith(':latest')))
+              message: Images must use an explicit version tag or digest.
+          targets:
+          - group: apps
+            kind: DaemonSet
+            resource: daemonsets
+            version: v1
+          - group: apps
+            kind: Deployment
+            resource: deployments
+            version: v1
+          - group: apps
+            kind: ReplicaSet
+            resource: replicasets
+            version: v1
+          - group: apps
+            kind: StatefulSet
+            resource: statefulsets
+            version: v1
+          - group: batch
+            kind: Job
+            resource: jobs
+            version: v1
+    conditionStatus:
+      conditions:
+      - lastTransitionTime: "2026-11-24T22:48:05Z"
+        message: Webhook configured.
+        reason: Succeeded
+        status: "True"
+        type: WebhookConfigured
+      - lastTransitionTime: "2026-11-24T22:48:06Z"
+        message: Policy is ready for reporting.
+        reason: Succeeded
+        status: "True"
+        type: RBACPermissionsGranted
+      message: 'skip generating ValidatingAdmissionPolicy: not enabled.'
+      ready: true
+    generated: false
+- apiVersion: policies.kyverno.io/v1
+  kind: ValidatingPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"policies.kyverno.io/v1","kind":"ValidatingPolicy","metadata":{"annotations":{},"name":"require-readonly-rootfs"},"spec":{"matchConstraints":{"namespaceSelector":{"matchExpressions":[{"key":"kubernetes.io/metadata.name","operator":"In","values":["frontend","backend","database","security-testing"]}]},"resourceRules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["pods"]}]},"validationActions":["Deny"],"validations":[{"expression":"object.spec.containers.all(c, has(c.securityContext) \u0026\u0026 has(c.securityContext.readOnlyRootFilesystem) \u0026\u0026 c.securityContext.readOnlyRootFilesystem)","message":"Root filesystem must be read-only."}]}}
+    creationTimestamp: "2026-11-24T22:47:37Z"
+    generation: 1
+    name: require-readonly-rootfs
+    resourceVersion: "27470"
+    uid: b5a3a690-c8d6-4abd-be6f-dd0f9088cd34
+  spec:
+    matchConstraints:
+      namespaceSelector:
+        matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values:
+          - frontend
+          - backend
+          - database
+          - security-testing
+      resourceRules:
+      - apiGroups:
+        - ""
+        apiVersions:
+        - v1
+        operations:
+        - CREATE
+        - UPDATE
+        resources:
+        - pods
+    validationActions:
+    - Deny
+    validations:
+    - expression: object.spec.containers.all(c, has(c.securityContext) && has(c.securityContext.readOnlyRootFilesystem)
+        && c.securityContext.readOnlyRootFilesystem)
+      message: Root filesystem must be read-only.
+  status:
+    autogen:
+      configs:
+        cronjobs:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - cronjobs
+            validationActions:
+            - Deny
+            validations:
+            - expression: object.spec.jobTemplate.spec.template.spec.containers.all(c,
+                has(c.securityContext) && has(c.securityContext.readOnlyRootFilesystem)
+                && c.securityContext.readOnlyRootFilesystem)
+              message: Root filesystem must be read-only.
+          targets:
+          - group: batch
+            kind: CronJob
+            resource: cronjobs
+            version: v1
+        defaults:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - apps
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - daemonsets
+                - deployments
+                - replicasets
+                - statefulsets
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - jobs
+            validationActions:
+            - Deny
+            validations:
+            - expression: object.spec.template.spec.containers.all(c, has(c.securityContext)
+                && has(c.securityContext.readOnlyRootFilesystem) && c.securityContext.readOnlyRootFilesystem)
+              message: Root filesystem must be read-only.
+          targets:
+          - group: apps
+            kind: DaemonSet
+            resource: daemonsets
+            version: v1
+          - group: apps
+            kind: Deployment
+            resource: deployments
+            version: v1
+          - group: apps
+            kind: ReplicaSet
+            resource: replicasets
+            version: v1
+          - group: apps
+            kind: StatefulSet
+            resource: statefulsets
+            version: v1
+          - group: batch
+            kind: Job
+            resource: jobs
+            version: v1
+    conditionStatus:
+      conditions:
+      - lastTransitionTime: "2026-11-24T22:47:37Z"
+        message: Webhook configured.
+        reason: Succeeded
+        status: "True"
+        type: WebhookConfigured
+      - lastTransitionTime: "2026-11-24T22:47:37Z"
+        message: Policy is ready for reporting.
+        reason: Succeeded
+        status: "True"
+        type: RBACPermissionsGranted
+      message: 'skip generating ValidatingAdmissionPolicy: not enabled.'
+      ready: true
+    generated: false
+- apiVersion: policies.kyverno.io/v1
+  kind: ValidatingPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"policies.kyverno.io/v1","kind":"ValidatingPolicy","metadata":{"annotations":{},"name":"require-resource-limits"},"spec":{"matchConstraints":{"namespaceSelector":{"matchExpressions":[{"key":"kubernetes.io/metadata.name","operator":"In","values":["frontend","backend","database","security-testing"]}]},"resourceRules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["pods"]}]},"validationActions":["Audit"],"validations":[{"expression":"object.spec.containers.all(c, has(c.resources) \u0026\u0026 has(c.resources.limits) \u0026\u0026 'cpu' in c.resources.limits \u0026\u0026 'memory' in c.resources.limits)","message":"CPU and memory limits are required."}]}}
+    creationTimestamp: "2026-11-24T22:47:37Z"
+    generation: 1
+    name: require-resource-limits
+    resourceVersion: "27469"
+    uid: daed0dff-61b3-4e6f-8740-920d24f1fc38
+  spec:
+    matchConstraints:
+      namespaceSelector:
+        matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values:
+          - frontend
+          - backend
+          - database
+          - security-testing
+      resourceRules:
+      - apiGroups:
+        - ""
+        apiVersions:
+        - v1
+        operations:
+        - CREATE
+        - UPDATE
+        resources:
+        - pods
+    validationActions:
+    - Audit
+    validations:
+    - expression: object.spec.containers.all(c, has(c.resources) && has(c.resources.limits)
+        && 'cpu' in c.resources.limits && 'memory' in c.resources.limits)
+      message: CPU and memory limits are required.
+  status:
+    autogen:
+      configs:
+        cronjobs:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - cronjobs
+            validationActions:
+            - Audit
+            validations:
+            - expression: object.spec.jobTemplate.spec.template.spec.containers.all(c,
+                has(c.resources) && has(c.resources.limits) && 'cpu' in c.resources.limits
+                && 'memory' in c.resources.limits)
+              message: CPU and memory limits are required.
+          targets:
+          - group: batch
+            kind: CronJob
+            resource: cronjobs
+            version: v1
+        defaults:
+          spec:
+            matchConstraints:
+              namespaceSelector:
+                matchExpressions:
+                - key: kubernetes.io/metadata.name
+                  operator: In
+                  values:
+                  - frontend
+                  - backend
+                  - database
+                  - security-testing
+              resourceRules:
+              - apiGroups:
+                - apps
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - daemonsets
+                - deployments
+                - replicasets
+                - statefulsets
+              - apiGroups:
+                - batch
+                apiVersions:
+                - v1
+                operations:
+                - CREATE
+                - UPDATE
+                resources:
+                - jobs
+            validationActions:
+            - Audit
+            validations:
+            - expression: object.spec.template.spec.containers.all(c, has(c.resources)
+                && has(c.resources.limits) && 'cpu' in c.resources.limits && 'memory'
+                in c.resources.limits)
+              message: CPU and memory limits are required.
+          targets:
+          - group: apps
+            kind: DaemonSet
+            resource: daemonsets
+            version: v1
+          - group: apps
+            kind: Deployment
+            resource: deployments
+            version: v1
+          - group: apps
+            kind: ReplicaSet
+            resource: replicasets
+            version: v1
+          - group: apps
+            kind: StatefulSet
+            resource: statefulsets
+            version: v1
+          - group: batch
+            kind: Job
+            resource: jobs
+            version: v1
+    conditionStatus:
+      conditions:
+      - lastTransitionTime: "2026-11-24T22:47:37Z"
+        message: Webhook configured.
+        reason: Succeeded
+        status: "True"
+        type: WebhookConfigured
+      - lastTransitionTime: "2026-11-24T22:47:37Z"
+        message: Policy is ready for reporting.
+        reason: Succeeded
+        status: "True"
+        type: RBACPermissionsGranted
+      message: 'skip generating ValidatingAdmissionPolicy: not enabled.'
+      ready: true
+    generated: false
+kind: List
+metadata:
+  resourceVersion: ""
